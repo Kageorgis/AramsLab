@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Order_Details</fullName>
+        <ccEmails>akageorgis@gmail.com</ccEmails>
+        <ccEmails>bethmeneses321@gmail.com</ccEmails>
+        <description>Order Details</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>aramayis@kageorgiscorp.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Details</template>
+    </alerts>
+    <alerts>
+        <fullName>Order_Details_to_Warehouse</fullName>
+        <ccEmails>akageorgis@gmail.com</ccEmails>
+        <description>Order Details to Warehouse</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Order_Details_for_Warehouse</template>
+    </alerts>
+    <rules>
+        <fullName>Order Detail Alerts</fullName>
+        <actions>
+            <name>Order_Details</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Order_Details_to_Warehouse</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Order.Status</field>
+            <operation>equals</operation>
+            <value>Draft</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

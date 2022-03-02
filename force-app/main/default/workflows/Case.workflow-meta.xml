@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <outboundMessages>
+        <fullName>Case_Urgent_Log_Defect</fullName>
+        <apiVersion>50.0</apiVersion>
+        <endpointUrl>https://rally1.rallydev.com/#/181208786484d/iterationstatus</endpointUrl>
+        <fields>Id</fields>
+        <fields>Priority</fields>
+        <fields>Status</fields>
+        <fields>Subject</fields>
+        <fields>Type</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>aramayis@kageorgiscorp.com</integrationUser>
+        <name>Case Urgent Log Defect</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Urgent Case Log Defect</fullName>
+        <actions>
+            <name>Case_Urgent_Log_Defect</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>High</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>
