@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Knowledge_Compact_Layout_for_Agents</fullName>
+    <fields>Title</fields>
+    <fields>ValidationStatus</fields>
+    <fields>ArticleNumber</fields>
+    <fields>RecordTypeId</fields>
+    <fields>Article_Governance__c</fields>
+    <fields>VersionNumber</fields>
+    <fields>PublishStatus</fields>
+    <fields>LastModifiedDate</fields>
+    <fields>LastModifiedById</fields>
+    <label>Knowledge Compact Layout for Agents</label>
+</CompactLayout>

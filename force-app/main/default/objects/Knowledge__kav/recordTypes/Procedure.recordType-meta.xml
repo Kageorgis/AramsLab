@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Procedure</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Knowledge_Compact_Layout_for_Agents</compactLayoutAssignment>
+    <description>Capture a series of ordered actions, motions, or operations in a knowledge Article.</description>
+    <label>Procedure</label>
+    <picklistValues>
+        <picklist>Article_Governance__c</picklist>
+        <values>
+            <fullName>Compliance-based</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Experience-based</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
