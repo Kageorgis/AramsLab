@@ -9,6 +9,7 @@ public class CaseTriggerHandler extends TriggerHandler{
     
     public override void beforeInsert(){
         for(Case c : (List<Case>) Trigger.new) {
+            //c.name = 'new Case';
             
         }
     }
