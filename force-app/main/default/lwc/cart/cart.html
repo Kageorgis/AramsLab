@@ -1,0 +1,84 @@
+<template>
+    <template if:true={prod}>
+    <template if:true={viewCart}>
+        
+        <!-- START of Shopping Cart List -->
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered" role="grid">
+            <thead>
+                <tr>
+                    <th colspan="8">
+                        <div class="slds-truncate slds-text-heading--label" title="Customer SR List">SHOPPING CART</div>
+                    </th>
+                </tr>
+                <tr class="slds-line-height_reset slds-text-title_caps">
+                    <th scope="col" class="column-width slds-text-heading--label normal-font"><div class="slds-truncate">Name</div></th>
+                    <th scope="col" class="column-width slds-text-heading--label normal-font"><div class="slds-truncate">Price</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={cartList} for:item="Product">
+                    <tr key={Product.Id} class="thirt-font">
+                    <th scope="col" class="ver-align">
+                        <div class="slds-truncate" style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:225px;">{Product.Name}</div>
+                    </th>
+                    <th scope="col" class="ver-align">
+                        <div class="slds-truncate">{Product.Price__c}</div>
+                    </th>
+                    </tr>
+                </template>
+            </tbody>
+            <tfoot>
+                <th colspan="8">
+                    <hr>
+                    <div class="pad">
+                        <p>TAX: {taxDis}</p>
+                        <p>SHIPPING: {shipping}</p>
+                        <p>TOTAL: {total}</p>
+                    </div>
+                    <lightning-button onclick={handleCheckout} variant="brand-outline" label="Checkout"></lightning-button>
+                    <lightning-button onclick={closeCart} variant="brand-outline" label="Close Cart"></lightning-button>
+                </th>
+            </tfoot>
+        </table>
+        <!-- END of Shopping Cart List -->
+    </template>
+    <template if:false={viewCart}>
+        <div class="slds-text-heading_medium pad">Build and view your Cart</div>
+        <lightning-button class="padd" onclick={handleViewCart} variant="brand-outline" label="View Cart"></lightning-button>
+    </template>
+    </template>
+    <template if:false={prod}>
+            <div class="slds-text-heading_medium">Select a Product</div>
+    </template>
+    
+        <!-- Modal/Popup starts here -->
+        <template if:true={isModalOpen}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">                                                                                                                   
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup header here -->
+                    <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                                alternative-text="close"
+                                                variant="inverse"
+                                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Enter Your Information</h2>
+                    </header>
+                <!-- Modal/Popup body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+    
+                    <!-- CREATE ORDER VIA LIGHTNING RECORD FORM -->
+                    <lightning-record-form
+                        object-api-name="Order"
+                        fields={fields}
+                        onsuccess={handleSuccess}>
+                    </lightning-record-form>
+    
+                </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </template>

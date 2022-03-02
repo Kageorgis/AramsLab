@@ -1,0 +1,15 @@
+ebody{
+  margin: 0;
+}
+.price {
+  color: green;
+  font-weight: bold;
+}
+
+.pad{
+  padding: 10px;
+}
+
+lightning-button{
+  padding: 10px;
+}

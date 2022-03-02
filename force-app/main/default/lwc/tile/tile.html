@@ -1,0 +1,12 @@
+<template>
+    <div class="container">
+        <a>
+            <div class="title">{product.Name}</div>
+            <div class="pad">
+                <img class="product-img pad" src={product.PhotoUrl__c}></img>
+            </div>
+            <div class="title">$ {product.Price__c}</div>
+            <lightning-button onclick={tileClick} variant="brand-outline" label="Add"></lightning-button>
+        </a>
+    </div>
+</template>

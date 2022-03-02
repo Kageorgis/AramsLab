@@ -1,0 +1,16 @@
+<template>
+    <template if:true={prod}>
+    <div class="container">
+        <template for:each={prod} for:item="Product">
+            <c-tile 
+                key={Product.Id} 
+                product={Product} 
+                ontileclick={handleTileClick}>
+            </c-tile>
+        </template>
+    </div>
+    </template>
+    <template if:false={prod}>
+        <p>ERROR</p>
+    </template>
+</template>

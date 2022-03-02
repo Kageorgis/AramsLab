@@ -1,0 +1,19 @@
+<template>
+    <div class="wrapper">
+        <div class="slds-col">
+        <header class="header">Welcome {name}</header>
+        <section class="content">
+            <div class="columns">
+            <main class="main" >
+                <!-- Capture productselected event from List comp and set to selectedProductId property -->
+                <c-list onproductselected={handleProductSelected}></c-list>
+            </main>
+            <aside class="sidebar-second">
+                <!-- Pass selectedProductId productId property in Cart -->
+                <c-cart product-id={selectedProductId} onaddtocart={addToCart}></c-cart>
+            </aside>
+            </div>
+        </section>
+        </div>
+    </div>
+</template>
