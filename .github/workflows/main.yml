@@ -31,7 +31,7 @@ jobs:
       
     - name: 'Populate auth file with SFDX_URL secret'
       shell: bash
-      run: 'echo ${{ secrets.SFDX_LR_TEST_URL}} > SFDX_QA'
+      run: 'echo ${{ secrets.ORG_AUTH_SECRET}} > SFDX_QA'
 
     - name: 'Authenticate Against Dev Hub'
       run: node_modules/sfdx-cli/bin/run force:auth:sfdxurl:store -f SFDX_QA -s -a AramsLab
