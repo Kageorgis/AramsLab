@@ -29,11 +29,11 @@ jobs:
         node_modules/sfdx-cli/bin/run --version
         node_modules/sfdx-cli/bin/run plugins --core
       
-    - name: 'Populate auth file with SFDX_URL secret'
+    - name: Populate auth file with SFDX_URL secret
       shell: bash
       run: 'echo ${{ secrets.ORG_AUTH_SECRET}} > SFDX_QA'
 
-    - name: 'Authenticate Against Dev Hub'
+    - name: Authenticate Against Dev Hub
       run: node_modules/sfdx-cli/bin/run force:auth:sfdxurl:store -f SFDX_QA -s -a AramsLab
         
     - name: Run Apex Tests
