@@ -28,16 +28,19 @@ jobs:
         npm install sfdx-cli
         node_modules/sfdx-cli/bin/run --version
         node_modules/sfdx-cli/bin/run plugins --core
+      
+    - name: 'Populate auth file with SFDX_URL secret'
+      shell: bash
+      run: 'echo ${{ secrets.SFDX_LR_TEST_URL}} > SFDX_QA'
 
-    - name: 'Authenticate against dev hub'
-      run: |
-        node_modules/sfdx-cli/bin/run force:auth:sfdxurl:store -f ${{ secrets.ORG_AUTH_SECRET }}
+    - name: 'Authenticate Against Dev Hub'
+      run: node_modules/sfdx-cli/bin/run force:auth:sfdxurl:store -f SFDX_QA -s -a AramsLab
         
-    - name: Run Apex test
+    - name: Run Apex Tests
       run: 
         node_modules/sfdx-cli/bin/run force:apex:test:run --resultformat tap --codecoverage -c -r human
         
-    - name: Deploy source
+    - name: Deploy Source
       id: Deploy
       if: github.event_name == 'push'
       run:
