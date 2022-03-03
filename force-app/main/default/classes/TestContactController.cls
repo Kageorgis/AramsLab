@@ -17,17 +17,6 @@ public with sharing class TestContactController {
     }
 
     @isTest
-    static void getContactList() {
-        TestContactController.createContacts(10);
-
-        Test.startTest();
-        List<Contact> conts = ContactController.getContactList();
-        Test.stopTest();
-
-        System.assertEquals(conts.size(), 10);
-    }
-
-    @isTest
     static void findContacts() {
         TestContactController.createContacts(10);
 
