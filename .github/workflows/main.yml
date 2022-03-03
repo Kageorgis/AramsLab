@@ -31,8 +31,7 @@ jobs:
 
     - name: 'Authenticate against dev hub'
       run: |
-        node_modules/sfdx-cli/bin/run force:org:display -u aramayis@kageorgiscorp.com --verbose --json > authFile.json
-        node_modules/sfdx-cli/bin/run force:auth:sfdxurl:store -f authFile.json
+        node_modules/sfdx-cli/bin/run force:auth:sfdxurl:store -f ${{ secrets.ORG_AUTH_SECRET }}
         
     - name: Run Apex test
       run: 
