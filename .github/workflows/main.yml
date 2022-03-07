@@ -28,6 +28,7 @@ jobs:
         npm install sfdx-cli
         node_modules/sfdx-cli/bin/run --version
         node_modules/sfdx-cli/bin/run plugins --core
+        sfdx plugins:install sfdx-git-delta
       
     - name: Populate auth file with SFDX_URL secret
       shell: bash
@@ -40,8 +41,8 @@ jobs:
       run: 
         node_modules/sfdx-cli/bin/run force:apex:test:run --resultformat tap --codecoverage -c -r human
         
-    - name: Deploy Source
-      id: Deploy
-      if: github.event_name == 'push'
-      run:
-        node_modules/sfdx-cli/bin/run force:source:deploy -p diffdeploy/force-app -u AramsLab --json --loglevel fatal
+    # - name: Deploy Source
+    #   id: Deploy
+    #   if: github.event_name == 'push'
+    #   run:
+    #     node_modules/sfdx-cli/bin/run force:source:deploy -p force-app -u AramsLab --json --loglevel fatal
