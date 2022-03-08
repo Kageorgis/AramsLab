@@ -13,10 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Job triggered by a ${{ github.event_name }} event."
-      - run: echo "Running on a ${{ runner.os }} server hosted by GitHub"
-      - run: echo "Name of repository is ${{ github.repository }}."
-      - run: echo "Name of branch is ${{ github.ref }}."
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.ref }}
