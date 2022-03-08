@@ -32,7 +32,8 @@ jobs:
         npm install sfdx-cli
         node_modules/sfdx-cli/bin/run --version
         node_modules/sfdx-cli/bin/run plugins --core
-        echo y | tail -n +1 | sfdx plugins:install sfdx-git-delta
+        npm i sfdx-git-delta
+        echo y | sfdx plugins:install sfdx-git-delta
       
     - name: Populate auth file with SFDX_URL secret
       shell: bash
