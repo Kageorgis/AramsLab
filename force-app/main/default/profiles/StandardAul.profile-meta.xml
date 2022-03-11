@@ -319,10 +319,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TestContactController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TestLightningConnectQuickstart</apexClass>
         <enabled>false</enabled>
     </classAccesses>
